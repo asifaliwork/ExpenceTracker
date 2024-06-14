@@ -1,0 +1,62 @@
+﻿@model ExpenceTracker.Models.ViewModels.ExpenseVM
+
+<form asp-controller="Expense" asp-action="Update" method="post">
+    <input asp-for="Expense.Id" hidden/>
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly " class="text-danger"> </div>
+        <div class="form-group row">
+            <h2 class="text-primary"> Update Expense</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-4">
+                        Expense Name
+                    </div>
+                    <div class="col-4">
+                        Amount
+                    </div>
+                    <div class="col-4">
+                        Expense  Type 
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Expense.ExpenseName" class="form-control" />
+                        <span asp-validation-for="Expense.ExpenseName" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Expense.Amount" class="form-control" />
+                        <span asp-validation-for="Expense.Amount" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <select asp-for="Expense.ExpenseTypeId" asp-items="@Model.TypeDropDown" class="form-control">
+                            <option>--- Select Expense Type ---</option>
+                        </select>
+                        <span asp-validation-for="Expense.ExpenseTypeId" class="text-danger"></span>
+
+                    </div>
+                    <br />
+                </div>
+                <div class="form-group row">
+                    <div class="col-10 offset-2 text-center row">
+                        <div class="col-5">
+                            <input type="submit" class="btn btn-info w-75 mx-1" value="Update" />
+                        </div>
+                        <div class="col-5">
+                            <a asp-action="Index" class="btn btn-danger w-75 mx-1">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
+.

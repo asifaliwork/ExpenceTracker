@@ -1,0 +1,43 @@
+﻿@model ExpenceTracker.Models.ExpenseType
+
+<form asp-controller="ExpenseType" asp-action="Create" method="post">
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly " class="text-danger"> </div>
+        <div class="form-group row">
+            <h2 class="text-primary"> Add Expense Type</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-6">
+                        Expense Type Name
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group row">
+                    <div class="col-10 offset-2 text-center row">
+                        <div class="col-5">
+                            <input type="submit" class="btn btn-info w-75 mx-1" value="create" />
+                        </div>
+                        <div class="col-5">
+                            <a asp-action="Index" class="btn btn-danger w-75 mx-1">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
+.
